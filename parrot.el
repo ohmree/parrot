@@ -161,6 +161,7 @@ For example, an animation with a total of ten frames would have a
 (defun parrot-sequence-length (parrot)
   "Return length of the animation sequence for PARROT."
   (cond ((string= parrot "default") 10)
+        ((string= parrot "bat") 16)
         ((string= parrot "confused") 26)
         ((string= parrot "emacs") 10)
         ((string= parrot "nyan") 10)
@@ -172,7 +173,7 @@ For example, an animation with a total of ten frames would have a
 (defun parrot-set-parrot-type (parrot)
   "Set the desired PARROT type in the mode line."
   (interactive (list (completing-read "Select parrot: "
-                                      '(default confused emacs nyan rotating science thumbsup) nil t)))
+                                      '(default bat confused emacs nyan rotating science thumbsup) nil t)))
   (setq parrot-frame-list (number-sequence 1 (parrot-sequence-length parrot)))
       (setq parrot-type parrot)
       (parrot-load-frames parrot)
